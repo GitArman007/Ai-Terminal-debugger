@@ -60,13 +60,13 @@ The server reads UTF-8 `.log` files stored in the `logs/` directory at the proje
 logs/<projectName>.log
 ```
 
-For example, querying `projectName: "my-app"` reads `logs/my-app.log`. If the file does not exist, the tools return:
+For example, querying `projectName: "my-app"` reads `logs/my-app.log`. If `logs/` does not exist yet, create the `logs/` directory at the repository root before supplying log files. If the file does not exist, the tools return:
 
 ```text
 No logs found for project: <projectName>
 ```
 
-> **Note:** `package.json` defines a `"logger": "node src/logger.js"` script, and tool descriptions reference `logger.js`. Currently, `src/logger.js` is not included in `src/`; any process or logger that writes `<projectName>.log` files into `logs/` can be inspected by the MCP server.
+> **Note:** Automatic log capture is not included in this repository. Any external process or user-supplied workflow that writes `<projectName>.log` files into `logs/` can be inspected by the MCP server.
 
 ---
 
@@ -124,7 +124,7 @@ Add an entry to your Claude Desktop MCP configuration (`claude_desktop_config.js
   "mcpServers": {
     "ai-terminal-debugger": {
       "command": "node",
-      "args": ["C:/Users/raiar/AI-Terminal-Debugger/src/server.js"]
+      "args": ["<PATH_TO_AI_TERMINAL_DEBUGGER>/src/server.js"]
     }
   }
 }

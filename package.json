@@ -5,7 +5,6 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "logger": "node src/logger.js",
     "test": "node src/test-server.js"
   },
   "keywords": ["mcp", "terminal", "debugger", "logging"],

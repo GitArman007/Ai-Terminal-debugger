@@ -27,8 +27,12 @@ function getLatestLogs(projectName, numberOfLines = 50) {
         return logs;
     }
 
-    return logs
-        .split(/\r?\n/)
+    const lines = logs.split(/\r?\n/);
+    if (lines.length > 0 && lines[lines.length - 1] === "") {
+        lines.pop();
+    }
+
+    return lines
         .slice(-numberOfLines)
         .join("\n");
 }

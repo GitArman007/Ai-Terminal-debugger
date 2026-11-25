@@ -55,14 +55,14 @@ const server = new McpServer({
 server.tool(
     "get_terminal_logs",
     "Returns the complete terminal log for a given project. " +
-    "Logs are captured by logger.js and stored in the centralized logs/ directory.",
+    "Reads logs/<projectName>.log from the centralized logs/ directory.",
     {
         projectName: z
             .string()
             .min(1)
             .describe(
                 "Name of the project whose logs to retrieve (e.g. 'my-app'). " +
-                "Must match the name used when logger.js was started."
+                "Must match the log filename without the .log extension."
             ),
     },
     async ({ projectName }) => {
